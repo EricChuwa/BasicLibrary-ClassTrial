@@ -50,7 +50,8 @@ class Base:
             for file in files:
                 filename = file.replace('.json', '')
                 obj = cls.load(filename)
-                objs.append(obj)
+                if obj is not None:
+                    objs.append(obj)
             return objs
         except Exception as e:
             print(f"Error listing files: {e}")
